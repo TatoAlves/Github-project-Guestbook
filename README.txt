@@ -1,0 +1,1 @@
+APenas um txt basico para testar o commit do git, futuramente vou edita-lo sobre o projeto.
