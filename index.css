@@ -1,29 +1,54 @@
 html{
-    width: 640px;
-    height: 640px;
-    background-color: white;
+    width: window.innerWidth;
+    height: window.innerHeight;
+    background-color: #E5DFCB;
     text-align: center;
-    padding: 0px 0px 0px 320px;
+    padding: window.innerWidth; window.innerHeight;
 
 }
 body{
-    background: lightgrey;
+    background: #E5DFCB;
     text-align: center;
+    border: 25px solid navy;
 }
 
-}
 h2{
-
-    color: blue;
     font-size: 30px;
     text-align: center;
 }
+
+#box-txt{
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    word-wrap: break-word;
+    text-align: center;
+    max-width: 250px;
+}
+
+#box-txt{
+    max-height:120px;
+    position: relative;
+    overflow: hidden;
+}
+#box-txt #read-more:hover{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center; 
+    margin: 0; 
+    padding: 30px 0; 
+}
+
+
 form{
     text-align: center;
-    background: grey;
+    background: #FFF8E2;
+    margin-left: auto;
+    margin-right: auto;
     width: 300px;
-    padding: 10px 10px 10px 10px;
-    margin: 0px 0px 0px 150px;
+    padding: 15px;
 }
 #cdt{
     float: center;
