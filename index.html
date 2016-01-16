@@ -5,6 +5,52 @@
   <link rel="stylesheet" href="index.css" />
   <title> Hello World of Guestbook </title>
 <meta charset="UTF-8">	
+  <link rel='stylesheet' href='css/style.css'>
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
+  <script>
+    // DOM Ready
+    $(function() {
+    
+      var $el, $ps, $up, totalHeight;
+      
+      $(".sidebar-box .button").click(function() {
+      
+        // IE 7 nao roda essa budega toda. Nao tive como testar, mas alguns lugares descreveram que nao roda.
+            
+        totalHeight = 0
+        // essa parte copiei na cara larga, mas estou pesquisando para aprender jQuery e Javascript #lol 
+        $el = $(this);
+        $p  = $el.parent();
+        $up = $p.parent();
+        $ps = $up.find("p:not('.read-more')");
+        
+       
+        $ps.each(function() {
+          totalHeight += $(this).outerHeight();
+          // FAIL totalHeight += $(this).css("margin-bottom"); #Copia na cara larga pra fazer funcionar.
+        });
+              
+        $up
+          .css({
+            
+            // para evitar que salte direto pra baixo o texto, quando a medida for removida.
+            "height": $up.height(),
+            "max-height": 9999
+          })
+          .animate({
+            "height": totalHeight
+          });
+        
+        // faz o texto rolar para baixo
+        $p.fadeOut();
+        
+        // evita falha de deslocar a pagina
+        return false;
+          
+      });
+    
+    });
+  </script>
 </head>
   <body>
 
@@ -12,19 +58,19 @@
   
     <p> Welcome to my first website in HTML5!</p>
 
-    <div id="box-txt" title="About guestbook">
+    <div class="sidebar-box">
     <p>
 	  Guestbook  is a <del>paper</del> or electronic means for a <ins>visitor</ins> to acknowledge a visit to a site, physical or web-based, and leave details such as their name, postal or electronic address, and any comments.</p>
 
     <p>On the Web, a guestbook is a logging system that allows visitors of a website to leave a public comment. It is possible in some guestbooks for visitors to express their thoughts about the website or its subject. Generally, they do not require the poster to create a user account, as it is an informal method of dropping off a quick message. The purpose of a website guestbook is to display the kind of visitors the site gets, including the part of the world they reside in, and gain feedback from them. This allows the webmaster to assess and improve their site. A guestbook is generally a script, which is usually remotely hosted and written in a language such as Perl, PHP, Python or ASP. Many free guestbook hosts and scripts exist.</p>
 
     <p>Names and addresses provided in guestbooks, paper-based or electronic, are frequently recorded and collated for use in providing statistics about visitors to the site, and to contact visitors to the site in the future. </p> 
-    <p id="read-more"><a href="#" class="button">Read More</a></p>
+    <p class="read-more"><a href="#" class="button">Read More</a></p>
   </div>
 
     </body>
   <body id="b2">
-      <h2>Cadastre seu cartão de visitas</h2>
+      <h2>Register you guestbook</h2>
   <form method="post" action="index.php">
     <div id="box">
     <p id="cont" style="font-family:verdana"><b>Name:</b>
@@ -40,7 +86,7 @@
     <label>
     <input type="email" name="e-mail" placeholder="insert your e-mail here" /></p></label></div>
     <input id="button" type="submit" value="Click here to create"/>
-    <!--  -->
+    <!-- Esta em construçao ainda, esto usando tudo que aprendo e aprendi em html5+css3 e JS e JQuery -->
   </form>
 </body>
 </html>

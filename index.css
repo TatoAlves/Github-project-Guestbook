@@ -7,7 +7,8 @@ html{
 
 }
 body{
-    background: #E5DFCB;
+    color: white;
+    background: #020A4B;
     text-align: center;
     border: 25px solid navy;
 }
@@ -15,36 +16,77 @@ body{
 h2{
     font-size: 30px;
     text-align: center;
+    box-shadow: ;
+}
+.sidebar-box {
+    color: white;
+
+    position: relative;
+    overflow: hidden;
+}
+.sidebar-box .read-more { 
+    position: absolute; 
+    bottom: 0; left: 0;
+    width: 100%; 
+    text-align: center; 
+
+      
+      /* "transparent" only works here because == rgba(0,0,0,0) - 
+      TA! isso foi novo pra mim, bem mais ou menos foi o que eu entendi.*/ 
 }
 
-#box-txt{
+.sidebar-box{
     padding: 15px;
     margin-left: auto;
     margin-right: auto;
     word-wrap: break-word;
     text-align: center;
     max-width: 250px;
-}
-
-#box-txt{
-    max-height:120px;
+    max-height: 150px;
     position: relative;
     overflow: hidden;
+    background-image: linear-gradient(to bottom, transparent, black);
+
 }
-#box-txt #read-more:hover{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    text-align: center; 
-    margin: 0; 
-    padding: 30px 0; 
+
+.button{
+   border-top: 1px solid #96d1f8;
+   background: #65a9d7;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#011434));
+   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+   padding: 5px 10px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   
+   
+   /* overboard shadows for Opera (and why spec version listed first) */
+   box-shadow: rgba(0,0,0,1) 0 1px 0, rgba(0,0,0,90) 0 0 10px, rgba(0,0,0,90) 0 0 20px, rgba(0,0,0,90) 0 0 30px;
+   
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 14px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+}
+.button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+}
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
 }
 
 
 form{
     text-align: center;
-    background: #FFF8E2;
+    background: #011434;
     margin-left: auto;
     margin-right: auto;
     width: 300px;
@@ -88,6 +130,9 @@ label{
     -webkit-trasition-property: transform;
     transition-property: transform;
 }
+/* Estou engatinhando em CSS3, não entendi bem boa parte do texto, mas com o tempo pego
+por isso, peguem leve, fiz tudo na unha, menos a parte do fade down do texto haha | I'm learning 
+CSS3 yer, so be friendly #lol */
 #button:before{
 
     pointer-events: none;
