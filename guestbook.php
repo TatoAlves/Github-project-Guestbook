@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,18 +10,6 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-
-
-
-<!--shake the form if blank-->
-<script>
-
-
-
-</script>
-
-
 
 
 </head>
@@ -47,31 +34,29 @@
   </div>
 </heading>
 
-
   <body id="b2">
     <div class="panel-body">
-      <h2>Cadastre seu cartão de visitas</h2>
+      <h2>Obrigado!</h2>
       <div class="container center-div col-offset-6 centered">
         <div class="row">
-  <form role="form" onsubmit="return capitalise()" onclick="this.form.submit(); thisdisabled=true" id="fml" class="form-horizontal" method="post" action="guestbook.php">
-    <div id="box">
+          <?php
 
-    <p id="cont" style="font-family:verdana"><b>Name:</b>
-    <label>
-    <input class="cdt focusedinput" size="35" type="text" name="seunome" placeholder="Name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required></p></label><br>
+          echo ("Funcionou!<br>");
 
-    <p id="cont" style="font-family:verdana"><b>E-mail:</b>
-    <label>
-    <input class="cdt focusedinput" id="name" size="35" type="email" name="email" placeholder="E-Mail" required></p></label>
+            $name = $_POST['seunome'];
+            $email = $_POST['email'];
 
-    <label id="cmt" for="comment">Comment: <br/><i><sub>(Opcional)</sub><i></laberl><br>
-      <textarea class="cdt focusedinput" id="email" rows="5" cols="50" id="comment" >
-      </textarea>
+              if (isset($name)) {
 
-  </div><br>
-    <div class="btn-group btn-group-lg">
-    <button id="btnsub" class="btn btn-block btn-default" type="button submit">Submit</button>
-    <button id="btnsub" class="btn btn-block btn-default" type="button">Reset</button>
+                echo "Obrigado por compartilhar seu nome $name.";
+              }
+              if (isset($email)) {
+
+                echo "<br/> Por favor, verifique se seu e-mail esta correto:<br/> $email";
+              }
+              
+          ?>
+        </div>
   </div>
 </div>
     <!--  -->

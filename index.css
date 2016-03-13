@@ -1,166 +1,30 @@
-html{
-    width: window.innerWidth;
-    height: window.innerHeight;
-    background-color: #E5DFCB;
+*{
     text-align: center;
-    padding: window.innerWidth; window.innerHeight;
-
 }
-body{
-    color: white;
-    background: #020A4B;
+.container{
+    margin-top: 1%;
+}
+.cnt{
+    width: 50%;
+    margin: 0 auto;
+}
+p{
     text-align: center;
-    border: 25px solid navy;
 }
-
-h2{
-    font-size: 30px;
-    text-align: center;
-    box-shadow: ;
-}
-.sidebar-box {
-    color: white;
-
-    position: relative;
-    overflow: hidden;
-}
-.sidebar-box .read-more { 
-    position: absolute; 
-    bottom: 0; left: 0;
-    width: 100%; 
-    text-align: center; 
-
-      
-      /* "transparent" only works here because == rgba(0,0,0,0) - 
-      TA! isso foi novo pra mim, bem mais ou menos foi o que eu entendi.*/ 
-}
-
-.sidebar-box{
-    padding: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    word-wrap: break-word;
-    text-align: center;
-    max-width: 250px;
-    max-height: 150px;
-    position: relative;
-    overflow: hidden;
-    background-image: linear-gradient(to bottom, transparent, black);
-
-}
-
-.button{
-   border-top: 1px solid #96d1f8;
-   background: #65a9d7;
-   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#011434));
-   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
-   padding: 5px 10px;
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   border-radius: 8px;
-   
-   
-   /* overboard shadows for Opera (and why spec version listed first) */
-   box-shadow: rgba(0,0,0,1) 0 1px 0, rgba(0,0,0,90) 0 0 10px, rgba(0,0,0,90) 0 0 20px, rgba(0,0,0,90) 0 0 30px;
-   
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: white;
-   font-size: 14px;
-   font-family: Georgia, serif;
-   text-decoration: none;
-   vertical-align: middle;
-}
-.button:hover {
-   border-top-color: #28597a;
-   background: #28597a;
-   color: #ccc;
-}
-.button:active {
-   border-top-color: #1b435e;
-   background: #1b435e;
-}
-
-
-form{
-    text-align: center;
-    background: #011434;
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
-    padding: 15px;
-}
-#cdt{
-    float: center;
-}
-
-div{
-    text-align: center;
-    width: 300px;
-    padding: 0px 0px 0px 20px;
-    border: 25px;
-    margin: 0px;
-}
-#cont{
-
+.cont{
     text-align: left;
-    
 }
-label{
+.cdt{
+    text-align: left;
+}
+#cmt{
+    text-align: left;
+}
+#btnsub{
+    width: auto;
+    margin: 0 auto;
     float: center;
 }
-#button{
-    padding: 20px;
-    margin: 25px;
-    color: blue;
-
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkkit-backface-visibility:hidden;
-    backface-visibility:hidden;
-    -moz-osx-font-smoothing: greyscale;
-    position: relative;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-trasition-property: transform;
-    transition-property: transform;
-}
-/* Estou engatinhando em CSS3, não entendi bem boa parte do texto, mas com o tempo pego
-por isso, peguem leve, fiz tudo na unha, menos a parte do fade down do texto haha | I'm learning 
-CSS3 yer, so be friendly #lol */
-#button:before{
-
-    pointer-events: none;
-    position: absolute;
-    z-index: -1;
-    content: '';
-    top: 100%;
-    left: 5%;
-    height:10px;
-    width: 90%;
-    opacity: 0;
-    background: -webkit-radial-gradient(center, ellipse, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 80%);
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 80%);
-    -webkit-transition-duration:0.3s;
-    transition-duration:0.3s;
-    -webkit-transition-property: transform, opacity;
-    transition-property: transform, property;
-}
-#button:hover, #button:focus:before, #button:active{
-
-    -webkit-transform: translateY(-5px);
-    transform: transformY(-5px);
-    /* move the element up by 5px */
-}
-#button:hover:before, #button:focus:before, #button:active:before {
-    
-    opacity: 1;
-    -webkit-transform: translateY(5px);
-    transform: translateY(5px;
-    /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+footer{
+    margin-top: 2%;
 }
