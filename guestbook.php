@@ -18,7 +18,7 @@
 <heading>
     <div class="container">
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading">[<0;59;35M
     <h1 title="Hello world is a joke...."> Hello world of guestbook!!!</h1>
     <p> Welcome to my first website in HTML5!</p>
       <div class="container">
@@ -40,21 +40,17 @@
       <div class="container center-div col-offset-6 centered">
         <div class="row">
           <?php
+	
+          $name =$_POST['seunome'];
+          $email =$_POST['email'];
+          $comment =$_POST['artxt'];
+          
+          include "addguestbook.txt";
+           
+         $file = fopen("addguestbook.txt", "a+") or die("Unable to open file!");
+         fwrite($file, "\n\n<div style='text-align:left'><b>". $name ."\n</b>:</div><br/><div style='text-align:center' size='50'>\n". $comment ."<br/></div>\n");
+         fclose($file);
 
-          echo ("Funcionou!<br>");
-
-            $name = $_POST['seunome'];
-            $email = $_POST['email'];
-
-              if (isset($name)) {
-
-                echo "Obrigado por compartilhar seu nome $name.";
-              }
-              if (isset($email)) {
-
-                echo "<br/> Por favor, verifique se seu e-mail esta correto:<br/> $email";
-              }
-              
           ?>
         </div>
   </div>
