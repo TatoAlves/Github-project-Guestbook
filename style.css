@@ -1,0 +1,53 @@
+*{
+    text-align: center;
+}
+.container{
+    margin-top: 1%;
+}
+.cnt{
+    width: 50%;
+    margin: 0 auto;
+}
+p{
+    text-align: center;
+}
+.cont{
+    text-align: left;
+}
+.cdt{
+    text-align: left;
+}
+
+#artxt{
+    width: 350px;
+    height: 100px;
+    padding: 0;
+    text-align: left;
+}
+
+#btnsub{
+    display: inline-block;
+}
+
+footer{
+    margin-top: 2%;
+}
+
+table.listar {
+    border-right: 5px solid #ccc;
+    border-bottom: 5px solid #ccc;
+}
+table.listar th{
+    background: #eee;
+    padding: 5px;
+    border-left: 5px solid #ccc;
+    border-top: 5px solid #ccc;
+}
+table.listar td{
+    padding: 5px;
+    border-left:5px solid #ccc;
+    border-top: 5px solid #ccc;
+}
+#editing a {
+    color: red;
+}

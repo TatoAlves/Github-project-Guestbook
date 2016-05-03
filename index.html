@@ -6,7 +6,7 @@
 <head>
   <title>Tato's Guestbook</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -50,14 +50,15 @@
 
     <p id="cont" style="font-family:verdana"><b>Name:</b>
     <label>
-    <input class="cdt focusedinput" size="35" type="text" name="seunome" placeholder="Name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required></p></label><br>
+    <input class="cdt focusedinput" size="35" type="text" name="seunome" placeholder="Name" pattern="^[a-zA-Z][a-zA-Z0-9- _\.]{1,20}$" required></p></label><br>
 
     <p id="cont" style="font-family:verdana"><b>E-mail:</b>
     <label>
     <input class="cdt focusedinput" id="name" size="35" type="email" name="email" placeholder="E-Mail" required></p></label>
+    <input type="hidden" name="add_name" value="1">
 
     <label id="cmt" for="comment">Comment: <br/><i><sub>(Opcional)</sub><i></laberl><br>
-      <textarea class="cdt focusedinput" name="artxt" id="artxt" style="width:75%" rows="10" id="comment" >
+      <textarea class="focusedinput" name="artxt" id="artxt" row="10">
       </textarea>
 
   </div><br>
@@ -66,8 +67,27 @@
     <button id="btnsub" class="btn btn-block btn-default" type="button">Reset</button>
   </div>
 </div>
-    <!--  -->
+    <!--access to delete information  -->
+<!--
   </form>
+  <section class="loginform cf">
+  <form name="login" action="guestbook.php?edit_name=1" method="get" accept-charset="utf-8">
+  <ul>
+    <li><label class="logup" for="usermail">Email</label>
+    <input type="email" name="usermail" placeholder="yourname@mail.com" required></li>
+    <li<label class="logup" for="password">Password</label>
+    <input type="password" name="password" placeholder="password" required/></li>
+    <li>
+    <input type="submit" value="Login"></li>
+  </ul>
+  </form> 
+
+  </section>
+ -->
+ <!--link to the page to edit Database -->
+ <div id="editing">
+    <a href="guestbook.php?edit_names=1">Edit the database clicking here!</a>
+ </div>
 </body>
 
 <footer>

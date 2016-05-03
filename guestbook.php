@@ -1,11 +1,25 @@
+<?php
+          
+        $servername = "arch-gamma.cloud.science.net";
+        $username = "tato";
+        $password = "feitolinux";
+          
+        $db = new mysqli ($servername, $username, $password, "guestbook");
+          
+        if($db->connect_error > 0) {
+    	    die('Unable to connect to database [' . $db->connect_error . ']');
+        }
+//        echo "Connected successfully<br>\n";
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
-  <title>Tato's Guestbook</title>
+  <title>Tatos Guestbook</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" type="text/css" href="estilo.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -18,7 +32,7 @@
 <heading>
     <div class="container">
     <div class="panel panel-default">
-      <div class="panel-heading">[<0;59;35M
+      <div class="panel-heading">
     <h1 title="Hello world is a joke...."> Hello world of guestbook!!!</h1>
     <p> Welcome to my first website in HTML5!</p>
       <div class="container">
@@ -34,24 +48,125 @@
   </div>
 </heading>
 
-  <body id="b2">
-    <div class="panel-body">
-      <h2>Obrigado!</h2>
-      <div class="container center-div col-offset-6 centered">
-        <div class="row">
-          <?php
-	
-          $name =$_POST['seunome'];
-          $email =$_POST['email'];
-          $comment =$_POST['artxt'];
-          
-          include "addguestbook.txt";
-           
-         $file = fopen("addguestbook.txt", "a+") or die("Unable to open file!");
-         fwrite($file, "\n\n<div style='text-align:left'><b>". $name ."\n</b>:</div><br/><div style='text-align:center' size='50'>\n". $comment ."<br/></div>\n");
-         fclose($file);
+  <body>
+    <div>
+    
+<?php
+  
+ if (isset($_POST['add_name'])) { print '<h2>Obrigado!</h2>'; }
 
-          ?>
+?>
+      
+      <div>
+        <div>
+
+<?php
+
+
+if (isset($_GET['del_name'])) {
+	
+	
+	$foi = $_GET['id'];
+	echo "query = delete from addguestbook where id = $foi<br>";
+	
+	if ($foi > 0){
+	
+	
+	$del_row = "delete from addguestbook where ID = '$foi'";
+	    
+	    if ($db->query($del_row) === true) {
+        	echo "Row deleted successfully!<br>\n";
+	    }
+	    else{
+		echo "\nError to delete: " . $del_row . "<br>" . $db->error;
+	    }
+	
+	    $list_sql = "select * from addguestbook";
+	    
+	    if ($result = $db->query($list_sql)) {
+		echo "<table border='1px' align='center' cellpadding='0' cellspacing='0' class='listar-db'><tr><th>ID</th><th>Nome</th><th>Email</th><th>Mensagem</th><th>Delete</th></tr>\n";
+		
+		while($row = $result->fetch_object()) {
+		    echo "<tr><td>".$row->ID."</td><td>".$row->name."</td><td>".$row->email."</td><td>".$row->message."</td><td><a href='guestbook.php?del_name=1&id=".$row->ID."'>Delete</a></td></tr>\n";
+		}
+	
+	    echo "</table>\n";
+	
+	    printf("Total %d rows. no momento<br>\n", $result->num_rows);
+	    $result->close();
+	} else {
+	    echo "\nERROR: Tente de novo, pois deu ruim dessa vez." .$sql. "<br>" . $db->error;
+	}
+	$db->close();
+	
+	echo "<br><a href='index.html'>Voltar para pagina inicial</a>";
+	}
+	
+}
+
+if (isset($_POST['add_name'])) {
+	
+        $name =$_POST['seunome'];
+        $email =$_POST['email'];
+        $comment =$_POST['artxt'];
+        
+        
+        $store_sql = "insert into addguestbook (name, email, message) values ('$name', '$email', '$comment')";
+          
+        if ($db->query($store_sql) === true) {
+            echo "New record created successfully<br>\n";
+	}
+	else{
+	    echo "\nError: " . $store_sql . "<br>" . $db->error;
+	}
+	
+	$list_sql = "select * from addguestbook";
+
+        echo "Usuarios ja cadastrados<br>\n";
+	
+	if ($result = $db->query($list_sql)) {
+	    echo "<table border='1px' align='center' cellpadding='0' cellspacing='0' class='listar-db'><tr><th>ID</th><th>Nome</th><th>Email</th><th>Mensagem</th></tr>\n";
+	    
+	    while($row = $result->fetch_object()) {
+		echo "<tr><td>".$row->ID."</td><td>".$row->name."</td><td>".$row->email."</td><td>".$row->message."</td></tr>\n";
+	    }
+	
+	    echo "</table>\n";
+	
+	    printf("Total %d rows. no momento<br>\n", $result->num_rows);
+	    $result->close();
+	} else {
+	    echo "\nERROR: Tente de novo, pois deu ruim dessa vez." .$sql. "<br>" . $db->error;
+	}
+	echo "<br><a href='index.html'>Voltar para pagina inicial</a>";
+	$db->close();
+}
+
+if (isset($_GET['edit_names'])) {
+	
+	$list_sql = "select * from addguestbook";
+
+        echo "Usuarios ja cadastrados PARA DELETAR<br>\n";
+	
+	if ($result = $db->query($list_sql)) {
+	    echo "<table border='1px' align='center' cellpadding='0' cellspacing='0' class='listar-db'><tr><th>ID</th><th>Nome</th><th>Email</th><th>Mensagem</th><th>Delete</th></tr>\n";
+	    
+	    while($row = $result->fetch_object()) {
+		echo "<tr><td>".$row->ID."</td><td>".$row->name."</td><td>".$row->email."</td><td>".$row->message."</td><td><a href='guestbook.php?del_name=1&id=".$row->ID."'>Delete</a></td></tr>\n";
+	    }
+	
+	    echo "</table>\n";
+	
+	    printf("Total %d rows. no momento<br>\n", $result->num_rows);
+	    $result->close();
+	} else {
+	    echo "\nERROR: Tente de novo, pois deu ruim dessa vez." .$sql. "<br>" . $db->error;
+	}
+	echo "<br><a href='index.html'>Voltar para pagina inicial</a>";
+	$db->close();
+}
+
+?>
         </div>
   </div>
 </div>
